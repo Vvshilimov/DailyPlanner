@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="assets/list_tasks_icon_245837.ico">
+  <title>Ежедневник</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrap" role="application">
+    <header class="app-header" aria-label="Шапка приложения">
+      <div class="title">
+        <div class="logo" aria-hidden="true">
+          <img src="assets/list_tasks_icon_245837.ico" alt="Логотип ежедневника" class="logo-img">
+        </div>
+        <div>
+          <h1>Ежедневник</h1>
+          <p class="lead">Твой день твои правила !</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel" aria-labelledby="formHeading">
+        <h2 id="formHeading" style="margin:0 0 8px 0;font-size:16px;">Новая задача</h2>
+
+        <form id="taskForm" novalidate>
+          <div>
+            <label for="title">Название задачи <span aria-hidden="true" style="color:var(--danger);font-weight:700;">*</span></label>
+            <input id="title" name="title" type="text" placeholder="Что вы запланировали на сегодня ?📒" required aria-required="true" />
+            <div id="titleError" class="error" style="display:none">Название задачи обязательно!</div>
+          </div>
+          <div>
+            <label for="desc">Описание</label>
+            <textarea id="desc" name="desc" placeholder="необязательно"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="ghost" id="resetBtn" title="Очистить форму">Очистить</button>
+            <button type="submit" class="primary" id="addBtn">Добавить</button>
+          </div>
+        </form>
+      </section>
+      
+      <section aria-labelledby="tasksHeading">
+        <h2 id="tasksHeading" style="margin:0 0 12px 0;font-size:16px;">Список задач</h2>
+        <div id="tasksContainer">
+          <div class="empty" id="emptyState">Пока задач нет, добавьте первую задачу через форму.</div>
+          <div class="tasks-grid" id="tasksGrid" aria-live="polite" aria-atomic="true" style="display:none;"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
